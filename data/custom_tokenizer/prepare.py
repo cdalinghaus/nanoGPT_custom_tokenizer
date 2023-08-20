@@ -20,7 +20,7 @@ os.system("rm train.bin")
 os.system("rm val.bin")
 
 # download the tiny shakespeare dataset
-input_file_path = os.path.join(os.path.dirname(__file__), 'combinedmay.txt')
+input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
 
 def encode(s):
     return tokenizer.encode(s).ids  # This will output a list of integers
@@ -32,7 +32,7 @@ chunk_size = 500  # or whatever number of lines fits in memory
 
 # Open the output file in binary append mode
 with open('data.bin', 'ab') as bin_file:
-    with open("combinedmay.txt", 'r') as f:
+    with open("input.txt", 'r') as f:
         while True:
             # read a chunk of the file
             lines = [f.readline() for _ in range(chunk_size)]
